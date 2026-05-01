@@ -62,7 +62,6 @@
             transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        /* Dynamic class added via JavaScript when scrolling */
         header.scrolled {
             padding: 0.8rem 5%;
             background-color: rgba(255, 255, 255, 0.98);
@@ -78,7 +77,6 @@
             align-items: center;
             gap: 10px;
             z-index: 1001;
-            /* Keeps logo above mobile menu */
         }
 
         .logo img {
@@ -135,7 +133,6 @@
             flex-direction: column;
             gap: 6px;
             z-index: 1001;
-            /* Keeps icon above mobile menu */
         }
 
         .bar {
@@ -295,6 +292,46 @@
             padding: 3rem 5%;
         }
 
+        /* Social Connect in Footer */
+        .social-connect {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-connect h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--light-teal);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--pure-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--pure-white);
+            color: var(--primary-teal);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
         /* Keyframe Animations */
         @keyframes fadeUpScale {
             0% {
@@ -341,15 +378,12 @@
 
             .hamburger {
                 display: flex;
-                /* Show hamburger on mobile */
             }
 
-            /* Turn nav into a sidebar */
             nav ul {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                /* Hide completely off-screen */
                 width: 70%;
                 max-width: 300px;
                 height: 100vh;
@@ -362,7 +396,6 @@
                 z-index: 1000;
             }
 
-            /* Slide menu in when active class is added */
             nav ul.active {
                 right: 0;
             }
@@ -375,7 +408,6 @@
                 font-size: 1.3rem;
             }
 
-            /* Animate hamburger into an X */
             .hamburger.active .bar:nth-child(1) {
                 transform: translateY(9px) rotate(45deg);
             }
@@ -398,7 +430,6 @@
 
 <body>
 
-    <!-- Overlay for dark background when mobile menu is open -->
     <div class="menu-overlay" id="menu-overlay"></div>
 
     <header id="main-header">
@@ -408,7 +439,6 @@
             <span>by Sarika</span>
         </div>
 
-        <!-- Hamburger Icon added here -->
         <div class="hamburger" id="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -435,11 +465,8 @@
         <h2 class="section-title reveal">Signature Collections</h2>
         <div class="grid">
 
-            <!-- Product 1 -->
             <div class="product-card reveal">
-                <div class="product-img">
-                    <img src="varmala.jpeg" alt="Varmala Preservation">
-                </div>
+                <div class="product-img"><img src="varmala.jpeg" alt="Varmala Preservation"></div>
                 <div class="product-info">
                     <h3>Varmala Preservation</h3>
                     <p>Immortalize your wedding day. We encase your beautiful Varmalas in flawless, crystal-clear resin
@@ -447,11 +474,8 @@
                 </div>
             </div>
 
-            <!-- Product 2 -->
             <div class="product-card reveal">
-                <div class="product-img">
-                    <img src="birthday.jpeg" alt="Birthday Frame">
-                </div>
+                <div class="product-img"><img src="birthday.jpeg" alt="Birthday Frame"></div>
                 <div class="product-info">
                     <h3>Birthday & Milestone Frames</h3>
                     <p>Beautiful collage frames featuring your favorite photos, accented with subtle botanical elements
@@ -459,11 +483,8 @@
                 </div>
             </div>
 
-            <!-- Product 3 -->
             <div class="product-card reveal">
-                <div class="product-img">
-                    <img src="bookmark.jpeg" alt="Resin Bookmark">
-                </div>
+                <div class="product-img"><img src="bookmark.jpeg" alt="Resin Bookmark"></div>
                 <div class="product-info">
                     <h3>Resin Bookmarks</h3>
                     <p>Luxurious feather and floral design bookmarks. The perfect companion for your favorite reading
@@ -471,11 +492,8 @@
                 </div>
             </div>
 
-            <!-- Product 4 -->
             <div class="product-card reveal">
-                <div class="product-img">
-                    <img src="pooja.jpeg" alt="Pooja Thali">
-                </div>
+                <div class="product-img"><img src="pooja.jpeg" alt="Pooja Thali"></div>
                 <div class="product-info">
                     <h3>Pooja Essentials</h3>
                     <p>Exquisite handcrafted Pooja Thalis and Ganesha decor, finished to absolute perfection for your
@@ -483,11 +501,8 @@
                 </div>
             </div>
 
-            <!-- Product 5 -->
             <div class="product-card reveal">
-                <div class="product-img">
-                    <img src="keychain.jpeg" alt="Custom Keychain">
-                </div>
+                <div class="product-img"><img src="keychain.jpeg" alt="Custom Keychain"></div>
                 <div class="product-info">
                     <h3>Custom Keychains</h3>
                     <p>Vibrant, personalized resin keychains featuring elegant designs like butterflies, florals, and
@@ -495,11 +510,8 @@
                 </div>
             </div>
 
-            <!-- Product 6 -->
             <div class="product-card reveal">
-                <div class="product-img">
-                    <img src="bracelet.jpeg" alt="Custom Resin Bracelets">
-                </div>
+                <div class="product-img"><img src="bracelet.jpeg" alt="Custom Resin Bracelets"></div>
                 <div class="product-info">
                     <h3>Resin Bracelets</h3>
                     <p>Delicate and stylish handcrafted resin bracelets, elegantly designed with real dried flowers,
@@ -507,11 +519,8 @@
                 </div>
             </div>
 
-            <!-- Product 7 -->
             <div class="product-card reveal">
-                <div class="product-img">
-                    <img src="pendent.jpeg" alt="Glitter Resin Pendants">
-                </div>
+                <div class="product-img"><img src="pendent.jpeg" alt="Glitter Resin Pendants"></div>
                 <div class="product-info">
                     <h3>Resin Pendants</h3>
                     <p>Add a touch of sparkle to your everyday look. These beautiful, lightweight pendants feature rich,
@@ -519,11 +528,8 @@
                 </div>
             </div>
 
-            <!-- Product 8 -->
             <div class="product-card reveal">
-                <div class="product-img">
-                    <img src="candle holder.jpeg" alt="Red Floral Resin Candle Holder">
-                </div>
+                <div class="product-img"><img src="candle holder.jpeg" alt="Red Floral Resin Candle Holder"></div>
                 <div class="product-info">
                     <h3>Floral Candle Holders</h3>
                     <p>Illuminate your space with these vibrant, flower-shaped resin tea light holders. Perfect for
@@ -548,27 +554,52 @@
     <footer>
         <h2>Artistic Avenue by Sarika</h2>
         <p style="margin-top: 1rem; color: #CCFBFB;">Made with love. Shipped nationwide.</p>
+
+        <!-- Social Connections Section -->
+        <div class="social-connect">
+            <h3>Connect With Us</h3>
+            <div class="social-icons">
+
+                <!-- Authentic Instagram Icon -->
+                <a href="https://instagram.com/YOUR_INSTA_HANDLE_HERE" target="_blank" aria-label="Instagram"
+                    class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                    </svg>
+                </a>
+
+                <!-- Authentic WhatsApp Icon -->
+                <a href="https://wa.me/YOUR_WHATSAPP_NUMBER_HERE?text=Hi%20Sarika,%20I%20loved%20your%20resin%20art%20and%20want%20to%20place%20an%20order!"
+                    target="_blank" aria-label="WhatsApp" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                    </svg>
+                </a>
+
+            </div>
+        </div>
+
         <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">&copy; 2024 Artistic Avenue by Sarika. All rights
             reserved.</p>
     </footer>
 
-    <!-- JavaScript for Dynamic Header, Scroll Animations, & Mobile Menu -->
     <script>
-        // --- Scroll Reveal Animation ---
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
                 var elementVisible = 120;
-
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
                 }
             }
         }
 
-        // --- Header Shrink on Scroll ---
         function headerScroll() {
             var header = document.getElementById("main-header");
             if (window.scrollY > 50) {
@@ -578,7 +609,6 @@
             }
         }
 
-        // --- Mobile Menu Toggle Logic ---
         const hamburger = document.getElementById("hamburger");
         const navMenu = document.getElementById("nav-menu");
         const navLinks = document.querySelectorAll(".nav-link");
@@ -593,7 +623,6 @@
         hamburger.addEventListener("click", toggleMenu);
         menuOverlay.addEventListener("click", toggleMenu);
 
-        // Close menu when a link is clicked
         navLinks.forEach(link => {
             link.addEventListener("click", () => {
                 hamburger.classList.remove("active");
@@ -602,11 +631,8 @@
             });
         });
 
-        // Event Listeners for scrolling
         window.addEventListener("scroll", reveal);
         window.addEventListener("scroll", headerScroll);
-
-        // Trigger once on page load
         reveal();
         headerScroll();
     </script>
