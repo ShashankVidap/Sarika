@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artistic Avenue by Sarika | Premium Resin Art</title>
+    <style>
+        /* CSS Variables for elegant White & Teal theme */
+        :root {
+            --primary-teal: #0D9488;
+            --dark-teal: #0F766E;
+            --light-teal: #F0FDFD;
+            --pure-white: #FFFFFF;
+            --text-dark: #1E293B;
+            --text-light: #64748B;
+            --gold-accent: #D4AF37;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--pure-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3 {
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* Dynamic class added via JavaScript when scrolling */
+        header.scrolled {
+            padding: 0.8rem 5%;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--primary-teal);
+            font-family: 'Georgia', serif;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            transition: transform 0.5s ease;
+        }
+
+        header.scrolled .logo img {
+            transform: scale(0.8);
+            /* Slightly shrinks logo image on scroll */
+        }
+
+        .logo span {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-teal);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-teal);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--light-teal) 0%, var(--pure-white) 100%);
+            padding: 0 5%;
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            color: var(--primary-teal);
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            animation: fadeUpScale 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUpScale 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+        }
+
+        .cta-btn {
+            padding: 1rem 2.5rem;
+            background-color: var(--primary-teal);
+            color: var(--pure-white);
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUpScale 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--dark-teal);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(13, 148, 136, 0.5);
+        }
+
+        /* Section Formatting */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-teal);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold-accent);
+            margin: 15px auto 0;
+            transition: width 0.5s ease;
+        }
+
+        .section-title:hover::after {
+            width: 100px;
+        }
+
+        /* Products Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: var(--pure-white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border: 1px solid rgba(13, 148, 136, 0.1);
+            /* Important for the image zoom effect to stay inside the borders */
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(13, 148, 136, 0.15);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 350px;
+            background-color: var(--light-teal);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            /* Hides the zoomed image edges */
+        }
+
+        /* IMAGE ANIMATION - Smooth Scale on Hover */
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 2rem;
+            text-align: center;
+            background: var(--pure-white);
+            position: relative;
+            z-index: 2;
+        }
+
+        .product-info h3 {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-teal);
+            color: var(--pure-white);
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeUpScale {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Enhanced Reveal Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px) scale(0.98);
+            transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="main-header">
+        <div class="logo">
+            <img src="logo.jpeg" alt="Logo" height="60" width="60" style="border-radius: 50%;">
+            Artistic Avenue
+            <span>by Sarika</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h1>Handcrafted Resin Elegance</h1>
+        <p>Preserving your most cherished memories with ultra-high quality resin art. From Varmala preservation to
+            custom birthday frames and elegant home decor.</p>
+        <a href="#collections" class="cta-btn">Explore the Art</a>
+    </section>
+
+    <section id="collections">
+        <h2 class="section-title reveal">Signature Collections</h2>
+        <div class="grid">
+
+            <!-- Product 1 -->
+            <div class="product-card reveal">
+                <div class="product-img">
+                    <img src="varmala.jpeg" alt="Varmala Preservation">
+                </div>
+                <div class="product-info">
+                    <h3>Varmala Preservation</h3>
+                    <p>Immortalize your wedding day. We encase your beautiful Varmalas in flawless, crystal-clear resin
+                        with custom nameplates.</p>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card reveal">
+                <div class="product-img">
+                    <img src="birthday.jpeg" alt="Birthday Frame">
+                </div>
+                <div class="product-info">
+                    <h3>Birthday & Milestone Frames</h3>
+                    <p>Beautiful collage frames featuring your favorite photos, accented with subtle botanical elements
+                        and gold detailing.</p>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card reveal">
+                <div class="product-img">
+                    <img src="bookmark.jpeg" alt="Resin Bookmark">
+                </div>
+                <div class="product-info">
+                    <h3>Resin Bookmarks</h3>
+                    <p>Luxurious feather and floral design bookmarks. The perfect companion for your favorite reading
+                        moments.</p>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card reveal">
+                <div class="product-img">
+                    <img src="pooja.jpeg" alt="Pooja Thali">
+                </div>
+                <div class="product-info">
+                    <h3>Pooja Essentials</h3>
+                    <p>Exquisite handcrafted Pooja Thalis and Ganesha decor, finished to absolute perfection for your
+                        sacred spaces.</p>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card reveal">
+                <div class="product-img">
+                    <img src="keychain.jpeg" alt="Custom Keychain">
+                </div>
+                <div class="product-info">
+                    <h3>Custom Keychains</h3>
+                    <p>Vibrant, personalized resin keychains featuring elegant designs like butterflies, florals, and
+                        tassels.</p>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card reveal">
+                <div class="product-img">
+                    <img src="bracelet.jpeg" alt="Custom Resin Bracelets">
+                </div>
+                <div class="product-info">
+                    <h3>Resin Bracelets</h3>
+                    <p>Delicate and stylish handcrafted resin bracelets, elegantly designed with real dried flowers,
+                        gold flakes, and personalized charms.</p>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card reveal">
+                <div class="product-img">
+                    <img src="pendent.jpeg" alt="Glitter Resin Pendants">
+                </div>
+                <div class="product-info">
+                    <h3>Resin Pendants</h3>
+                    <p>Add a touch of sparkle to your everyday look. These beautiful, lightweight pendants feature rich,
+                        glittering resin set in elegant gold-toned bezels with matching chains.</p>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card reveal">
+                <div class="product-img">
+                    <img src="candle holder.jpeg" alt="Red Floral Resin Candle Holder">
+                </div>
+                <div class="product-info">
+                    <h3>Floral Candle Holders</h3>
+                    <p>Illuminate your space with these vibrant, flower-shaped resin tea light holders. Perfect for
+                        adding a warm, ambient glow and a lovely pop of color to any room.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" style="background-color: var(--light-teal);">
+        <h2 class="section-title reveal">About The Artist</h2>
+        <div class="reveal"
+            style="max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-light); font-size: 1.1rem;">
+            <p>Welcome to Artistic Avenue! Created by Sarika, every piece here is entirely handcrafted with meticulous
+                attention to detail. We specialize in casting memories in time—whether it's preserving the flowers from
+                your wedding day or creating a unique gift for a loved one. We use only the highest quality resin to
+                ensure a flawless, bubble-free finish that will last a lifetime.</p>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Artistic Avenue by Sarika</h2>
+        <p style="margin-top: 1rem; color: #CCFBFB;">Made with love. Shipped nationwide.</p>
+        <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">&copy; 2024 Artistic Avenue by Sarika. All rights
+            reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Dynamic Header & Scroll Animations -->
+    <script>
+        // Reveal elements on scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 120; // Triggers slightly earlier for a smoother flow
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        // Shrink header on scroll
+        function headerScroll() {
+            var header = document.getElementById("main-header");
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        }
+
+        // Event Listeners
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("scroll", headerScroll);
+
+        // Trigger once on page load to catch elements already in view
+        reveal();
+        headerScroll();
+    </script>
+</body>
+
+</html>
